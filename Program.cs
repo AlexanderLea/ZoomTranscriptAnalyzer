@@ -61,8 +61,11 @@ namespace ZoomTranscriptAnalyzer
             Console.WriteLine($"Translated File --> {zoomItems.Count} lines");
 
             var groupedZoomItems = zoomItems.GroupBy(x => x.Speaker).ToList();
-
+            
+            
+            Console.WriteLine("----");
             Console.WriteLine($"Sumarizing as block");
+            Console.WriteLine("----");
 
 
             var csv = new StringBuilder();
@@ -82,8 +85,14 @@ namespace ZoomTranscriptAnalyzer
                 csv.AppendLine($"{x.Key},{totalWords},{totalTimeSpan.TotalSeconds}");
             });
 
+            Console.WriteLine("----");
             Console.WriteLine($"Sumarizing as CSV");
+            Console.WriteLine("----");
+
             Console.WriteLine(csv.ToString());
+
+            Console.WriteLine("----");
+            Console.WriteLine("Done.");
 
             return 1;
         }
